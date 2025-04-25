@@ -1,0 +1,14 @@
+/* 可以在这里添加一些全局的基础样式或重置 */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* 可以为 ElementPlus 组件设置一些通用样式 */
+  .el-table {
+      margin-top: 15px;
+  }
+  
+  .el-card {
+      margin-bottom: 20px;
+  }

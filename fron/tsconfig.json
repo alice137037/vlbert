@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // 或其他目标版本
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node", // 或者 "Bundler"
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true, // 建议开启 sourceMap
+    "resolveJsonModule": true,
+    "isolatedModules": true, // Vite 通常需要
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"], // 包含 DOM.Iterable
+    "skipLibCheck": true,
+    "noEmit": true, // Vue 项目通常不直接由 tsc 输出
+
+    /* JavaScript Support */
+    "allowJs": true, // <--- 确保这一行存在并且为 true
+    "checkJs": false, // (可选) 通常不需要检查 JS 文件的类型
+
+    /* Aliases and Base URL */
+    "baseUrl": ".", // 设置基础 URL 为项目根目录
+    "paths": {
+      "@/*": [
+        "./src/*" // 路径映射，确保 @ 指向 src
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    // 如果需要，可以显式包含 js 文件，但 allowJs 通常足够
+    // "src/**/*.js"
+    "vite.config.ts" // 如果 vite 配置是 ts 文件
+    ],
+  "references": [{ "path": "./tsconfig.node.json" }], // Vite 通常包含这个
+  "exclude": ["node_modules", "dist"] // 排除不需要编译的目录
+}
