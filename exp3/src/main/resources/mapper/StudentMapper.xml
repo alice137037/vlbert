@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hit.exp3.mapper.StudentMapper">
+
+    <select id="findAll" resultType="hit.exp3.entity.Student">
+        SELECT * FROM student
+        <where>
+            <if test="keyword != null and keyword != ''">
+                (id LIKE CONCAT('%', #{keyword}, '%') OR name LIKE CONCAT('%', #{keyword}, '%'))
+            </if>
+        </where>
+        ORDER BY id ASC
+        <!-- 分页逻辑通常在 Service 层使用 PageHelper 或手动 Limit 实现 -->
+        <!-- 如果需要 Mapper 层实现分页，需要传入分页参数 (page, size) 并添加 LIMIT 子句 -->
+        <!-- LIMIT #{offset}, #{pageSize} -->
+    </select>
+
+    <!-- 其他 CRUD 操作在 Mapper 接口中已使用注解实现 -->
+
+</mapper>
+
+
